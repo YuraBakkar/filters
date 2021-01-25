@@ -100,6 +100,26 @@ function changeFilters() {
             $(sel2[i]).hide()
         }
     }
+    changeFilters1()
+}
+
+function changeFilters1() {
+    let input1 = $('form thead tr th:nth-child(3) input')
+    let input2 = $('form thead tr th:nth-child(4) input')
+    let input1val = $(input1).val().trim()
+    let input2val = $(input2).val().trim()
+    let select1 = $('form thead tr th:nth-child(1) select')
+    let select2 = $('form thead tr th:nth-child(2) select')
+    let select1val = $(select1).val()
+    let select2val = $(select2).val()
+    if(input1val == '' && input2val == '') {
+        if(select1val == -1 && select2val != -1) {
+            $('form thead tr th:nth-child(2) select option').show()
+        }
+        if(select2val == -1 && select1val != -1) {
+            $('form thead tr th:nth-child(1) select option').show()
+        }
+    }
 }
 
 function createCart() {
