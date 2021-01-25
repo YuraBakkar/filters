@@ -66,6 +66,40 @@ function filter() {
             $(data[i]).hide()
         }
     }
+    changeFilters()
+}
+
+function changeFilters() {
+    let els = 'form tbody tr:visible'
+    let data = $(els)
+    let res1 = [], res2 = []
+    //console.log(el,data)
+    for (let i = 0; i < data.length; i++) {
+        res1[$(data[i]).children('td:nth-child(1)').text()] = ''
+        res2[$(data[i]).children('td:nth-child(2)').text()] = ''
+    }
+    res1 = Object.keys(res1).map((key, value) => {
+        return key
+    })
+    res2 = Object.keys(res2).map((key, value) => {
+        return key
+    })
+    let sel1 = $('form thead tr th:nth-child(1) select option')
+    for(let i=1; i<sel1.length; i++){
+        if(res1.includes($(sel1[i]).text())){
+            $(sel1[i]).show()
+        } else {
+            $(sel1[i]).hide()
+        }
+    }
+    let sel2 = $('form thead tr th:nth-child(2) select option')
+    for(let i=1; i<sel2.length; i++){
+        if(res2.includes($(sel2[i]).text())){
+            $(sel2[i]).show()
+        } else {
+            $(sel2[i]).hide()
+        }
+    }
 }
 
 function createCart() {
