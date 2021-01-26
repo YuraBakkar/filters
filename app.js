@@ -14,7 +14,7 @@ function createFilter(columnNum) {
     res = Object.keys(res).map((key, value) => {
         return key
     })
-    let sel = $('<select>').appendTo($(parentEl)).attr('data-id', columnNum);
+    let sel = $('<select>').appendTo($(parentEl)).attr('data-id', columnNum).css('width','95%')
     sel.append($("<option>").attr('value', -1).text('---- все ----'))
     res.forEach((r, index) => sel.append($("<option>").attr('value', index).text(r)))
     sel.change(filter)
